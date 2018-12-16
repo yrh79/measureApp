@@ -1,14 +1,57 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      测试数据
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list>
+
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+    
+          <ion-col>
+            Voltage
+          </ion-col>
+    
+          <ion-col>
+            Ampere
+          </ion-col>
+    
+          <ion-col>
+            Timestamp
+          </ion-col>
+    
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <ion-item *ngFor="let item of items">
+      <ion-grid>
+        <ion-row>
+
+          <ion-col>
+            {{ item.v }}
+          </ion-col>
+
+          <ion-col>
+            {{ item.a }}
+          </ion-col>
+
+          <ion-col>
+            {{ getTimestamp(item.ts) }}
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button block (click)="getData()">
+    立即刷新
+  </button>
 </ion-content>
